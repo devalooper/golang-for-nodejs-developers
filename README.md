@@ -18,141 +18,197 @@ This guide full of examples is intended for people learning Go that are coming f
 
 ## Contents
 
-- [Examples](#examples)
-  - [comments](#comments)
-  - [printing](#printing)
-  - [logging](#logging)
-  - [variables](#variables)
-  - [types](#types)
-    - [bool](#types)
-    - [number](#types)
-    - [string](#types)
-    - [array](#types)
-    - [object](#types)
-    - [function](#types)
-  - [type check](#type-check)
-  - [interpolation](#interpolation)
-  - [if/else](#ifelse)
-    - [ternary](#ifelse)
-  - [for](#for)
-  - [while](#while)
-  - [switch](#switch)
-  - [arrays](#arrays)
-    - [slicing](#arrays)
-    - [copying](#arrays)
-    - [appending](#arrays)
-    - [prepending](#arrays)
-  - [uint8 arrays](#uint8-arrays)
-  - [array iteration](#array-iteration)
-    - [looping](#array-iteration)
-    - [mapping](#array-iteration)
-    - [filtering](#array-iteration)
-    - [reducing](#array-iteration)
-	- [sorting](#array-sorting)
-  - [buffers](#buffers)
-    - [allocate](#buffers)
-    - [big endian](#buffers)
-    - [little endian](#buffers)
-    - [hex](#buffers)
-    - [compare](#buffers)
-    - [equals](#buffers)
-  - [maps](#maps)
-    - [iteration](#maps)
-  - [objects](#objects)
-  - [functions](#functions)
-  - [default values](#default-values)
-  - [destructuring](#destructuring)
-  - [spread operator](#spread-operator)
-  - [rest operator](#rest-operator)
-  - [swapping](#swapping)
-  - [classes](#classes)
-    - [constructors](#classes)
-    - [instantiation](#classes)
-    - ["this"](#classes)
-  - [generators](#generators)
-  - [datetime](#datetime)
-    - [parsing](#datetime)
-    - [formatting](#datetime)
-    - [unix timestamp](#datetime)
-  - [timeout](#timeout)
-  - [interval](#interval)
-  - [IIFE](#iife)
-  - [files](#files)
-    - [creating](#files)
-    - [opening](#files)
-    - [writing](#files)
-    - [reading](#files)
-    - [closing](#files)
-    - [deleting](#files)
-    - [file descriptors](#files)
-  - [json](#json)
-    - [parse](#json)
-    - [stringify](#json)
-  - [big numbers](#big-numbers)
-    - [uint](#big-numbers)
-    - [string](#big-numbers)
-    - [hex](#big-numbers)
-    - [buffers](#big-numbers)
-    - [compare](#buffers)
-    - [equals](#buffers)
-  - [promises](#promises)
-    - [then](#promises)
-    - [all](#promises)
-  - [async/await](#async-await)
-  - [streams](#streams)
-    - [reading](#streams)
-    - [writing](#streams)
-  - [event emitter](#event-emitter)
-  <!--
-    - [transform](#streams)
-  - [concurrency](#concurrency)
-    - [threads](#concurrency)
-    - [forking](#concurrency)
-  - [message passing](#message-passing)
-  - [first-class functions](#first-class-functions)
-  -->
-  - [errors](#errors)
-  - [try/catch](#trycatch)
-  - [exceptions](#exceptions)
-  - [regex](#regex)
-  - [exec (sync)](#exec-sync)
-  - [exec (async)](#exec-async)
-  - [tcp server](#tcp-server)
-  - [udp server](#udp-server)
-  - [http server](#http-server)
-  - [url parse](#url-parse)
-  - [gzip](#gzip)
-    - [compress](#gzip)
-    - [decompress](#gzip)
-  - [dns](#dns)
-    - [ns lookup](#dns)
-    - [ip lookup](#dns)
-    - [mx lookup](#dns)
-    - [txt lookup](#dns)
-    - [set resolution servers](#dns)
-  - [crypto](#crypto)
-    - [sha256](#crypto)
-  - [env vars](#env-vars)
-  - [cli args](#cli-args)
-  - [cli flags](#cli-flags)
-  - [stdout](#stdout)
-  - [stderr](#stderr)
-  - [stdin](#stdin)
-  - [modules](#modules)
-    - [installing](#modules)
-    - [updating](#modules)
-    - [removing](#modules)
-    - [importing](#modules)
-    - [exporting](#modules)
-    - [publishing](#modules)
-  - [stack trace](#stack-trace)
-  - [databases](#databases)
-    - [sqlite3](#databases)
-  - [testing](#testing)
-  - [benchmarking](#benchmarking)
-  - [documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
+- [Golang for Node.js Developers](#golang-for-nodejs-developers)
+	- [Contents](#contents)
+	- [Examples](#examples)
+		- [comments](#comments)
+			- [Node.js](#nodejs)
+			- [Go](#go)
+		- [printing](#printing)
+			- [Node.js](#nodejs-1)
+			- [Go](#go-1)
+		- [logging](#logging)
+			- [Node.js](#nodejs-2)
+			- [Go](#go-2)
+		- [variables](#variables)
+			- [Node.js](#nodejs-3)
+			- [Go](#go-3)
+		- [interpolation](#interpolation)
+			- [Node.js](#nodejs-4)
+			- [Go](#go-4)
+		- [types](#types)
+			- [Node.js](#nodejs-5)
+			- [Go](#go-5)
+		- [type check](#type-check)
+			- [Node.js](#nodejs-6)
+			- [Go](#go-6)
+		- [if/else](#ifelse)
+			- [Node.js](#nodejs-7)
+			- [Go](#go-7)
+		- [for](#for)
+			- [Node.js](#nodejs-8)
+			- [Go](#go-8)
+		- [while](#while)
+			- [Node.js](#nodejs-9)
+			- [Go](#go-9)
+		- [switch](#switch)
+			- [Node.js](#nodejs-10)
+			- [Go](#go-10)
+		- [arrays](#arrays)
+			- [Node.js](#nodejs-11)
+			- [Go](#go-11)
+		- [uint8 arrays](#uint8-arrays)
+			- [Node.js](#nodejs-12)
+			- [Go](#go-12)
+		- [array iteration](#array-iteration)
+			- [Node.js](#nodejs-13)
+			- [Go](#go-13)
+		- [array sorting](#array-sorting)
+			- [Node.js](#nodejs-14)
+			- [Go](#go-14)
+		- [buffers](#buffers)
+			- [Node.js](#nodejs-15)
+			- [Go](#go-15)
+		- [maps](#maps)
+			- [Node.js](#nodejs-16)
+			- [Go](#go-16)
+		- [objects](#objects)
+			- [Node.js](#nodejs-17)
+			- [Go](#go-17)
+		- [functions](#functions)
+			- [Node.js](#nodejs-18)
+			- [Go](#go-18)
+		- [default values](#default-values)
+			- [Node.js](#nodejs-19)
+			- [Go](#go-19)
+		- [destructuring](#destructuring)
+			- [Node.js](#nodejs-20)
+			- [Go](#go-20)
+		- [spread operator](#spread-operator)
+			- [Node.js](#nodejs-21)
+			- [Go](#go-21)
+		- [rest operator](#rest-operator)
+			- [Node.js](#nodejs-22)
+			- [Go](#go-22)
+		- [swapping](#swapping)
+			- [Node.js](#nodejs-23)
+			- [Go](#go-23)
+		- [classes](#classes)
+			- [Node.js](#nodejs-24)
+			- [Go](#go-24)
+		- [generators](#generators)
+			- [Node.js](#nodejs-25)
+			- [Go](#go-25)
+		- [datetime](#datetime)
+			- [Node.js](#nodejs-26)
+			- [Go](#go-26)
+		- [timeout](#timeout)
+			- [Node.js](#nodejs-27)
+			- [Go](#go-27)
+		- [interval](#interval)
+			- [Node.js](#nodejs-28)
+			- [Go](#go-28)
+		- [IIFE](#iife)
+			- [Node.js](#nodejs-29)
+			- [Go](#go-29)
+		- [files](#files)
+			- [Node.js](#nodejs-30)
+			- [Go](#go-30)
+		- [json](#json)
+			- [Node.js](#nodejs-31)
+			- [Go](#go-31)
+		- [big numbers](#big-numbers)
+			- [Node.js](#nodejs-32)
+			- [Go](#go-32)
+		- [promises](#promises)
+			- [Node.js](#nodejs-33)
+			- [Go](#go-33)
+		- [async/await](#asyncawait)
+			- [Node.js](#nodejs-34)
+			- [Go](#go-34)
+		- [streams](#streams)
+			- [Node.js](#nodejs-35)
+			- [Go](#go-35)
+		- [event emitter](#event-emitter)
+			- [Node.js](#nodejs-36)
+			- [Go](#go-36)
+		- [errors](#errors)
+			- [Node.js](#nodejs-37)
+			- [Go](#go-37)
+		- [try/catch](#trycatch)
+			- [Node.js](#nodejs-38)
+			- [Go](#go-38)
+		- [exceptions](#exceptions)
+			- [Node.js](#nodejs-39)
+			- [Go](#go-39)
+		- [regex](#regex)
+			- [Node.js](#nodejs-40)
+			- [Go](#go-40)
+		- [exec (sync)](#exec-sync)
+			- [Node.js](#nodejs-41)
+			- [Go](#go-41)
+		- [exec (async)](#exec-async)
+			- [Node.js](#nodejs-42)
+			- [Go](#go-42)
+		- [tcp server](#tcp-server)
+			- [Node.js](#nodejs-43)
+			- [Go](#go-43)
+		- [udp server](#udp-server)
+			- [Node.js](#nodejs-44)
+			- [Go](#go-44)
+		- [http server](#http-server)
+			- [Node.js](#nodejs-45)
+			- [Go](#go-45)
+		- [url parse](#url-parse)
+			- [Node.js](#nodejs-46)
+			- [Go](#go-46)
+		- [gzip](#gzip)
+			- [Node.js](#nodejs-47)
+			- [Go](#go-47)
+		- [dns](#dns)
+			- [Node.js](#nodejs-48)
+			- [Go](#go-48)
+		- [crypto](#crypto)
+			- [Node.js](#nodejs-49)
+			- [Go](#go-49)
+		- [env vars](#env-vars)
+			- [Node.js](#nodejs-50)
+			- [Go](#go-50)
+		- [cli args](#cli-args)
+			- [Node.js](#nodejs-51)
+			- [Go](#go-51)
+		- [cli flags](#cli-flags)
+			- [Node.js](#nodejs-52)
+			- [Go](#go-52)
+		- [stdout](#stdout)
+			- [Node.js](#nodejs-53)
+			- [Go](#go-53)
+		- [stderr](#stderr)
+			- [Node.js](#nodejs-54)
+			- [Go](#go-54)
+		- [stdin](#stdin)
+			- [Node.js](#nodejs-55)
+			- [Go](#go-55)
+		- [modules](#modules)
+			- [Node.js](#nodejs-56)
+			- [Go](#go-56)
+		- [stack trace](#stack-trace)
+			- [Node.js](#nodejs-57)
+			- [Go](#go-57)
+		- [databases](#databases)
+			- [Node.js](#nodejs-58)
+			- [Go](#go-58)
+		- [testing](#testing)
+			- [Node.js](#nodejs-59)
+			- [Go](#go-59)
+		- [benchmarking](#benchmarking)
+			- [Node.js](#nodejs-60)
+			- [Go](#go-60)
+		- [documentation](#documentation)
+			- [Node.js](#nodejs-61)
+			- [Go](#go-61)
+	- [Contributing](#contributing)
+	- [License](#license)
 
 ## Examples
 
@@ -163,7 +219,7 @@ All sample code is available in [examples/](examples/)
 
 #### Node.js
 
-```node
+```JavaScript
 // this is a line comment
 
 /*
@@ -192,7 +248,7 @@ func main() {
 
 #### Node.js
 
-```node
+```JavaScript
 console.log('print to stdout')
 console.log('format %s %d', 'example', 1)
 console.error('print to stderr')
@@ -238,7 +294,7 @@ print to stderr
 
 #### Node.js
 
-```node
+```JavaScript
 console.log((new Date()).toISOString(), 'hello world')
 ```
 
@@ -275,7 +331,7 @@ _(Package `log` writes to standard error ánd prints the date and time of each l
 
 #### Node.js
 
-```node
+```JavaScript
 // function scoped
 var foo = 'foo'
 
@@ -315,7 +371,7 @@ func main() {
 
 #### Node.js
 
-```node
+```JavaScript
 const name = 'bob'
 const age = 21
 const message = `${name} is ${age} years old`
@@ -358,7 +414,7 @@ bob is 21 years old
 
 #### Node.js
 
-```node
+```JavaScript
 // primitives
 const myBool = true
 const myNumber = 10
@@ -426,7 +482,7 @@ func main() {
 
 #### Node.js
 
-```node
+```JavaScript
 function typeOf(obj) {
   return {}.toString.call(obj).split(' ')[1].slice(0,-1).toLowerCase()
 }
@@ -570,7 +626,7 @@ time.Time
 
 #### Node.js
 
-```node
+```JavaScript
 const array = [1, 2]
 
 if (array) {
@@ -645,7 +701,7 @@ no
 
 #### Node.js
 
-```node
+```JavaScript
 for (let i = 0; i <= 5; i++) {
   console.log(i)
 }
@@ -694,7 +750,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 let i = 0
 
 while (i <= 5) {
@@ -753,7 +809,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 const value = 'b'
 
 switch(value) {
@@ -846,7 +902,7 @@ Examples of slicing, copying, appending, and prepending arrays.
 
 #### Node.js
 
-```node
+```JavaScript
 const array = [1, 2, 3, 4, 5]
 console.log(array)
 
@@ -1009,7 +1065,7 @@ Examples of iterating, mapping, filtering, and reducing arrays.
 
 #### Node.js
 
-```node
+```JavaScript
 const array = ['a', 'b', 'c']
 
 array.forEach((value, i) => {
@@ -1114,7 +1170,7 @@ Examples of how to sort an array
 
 #### Node.js
 
-```node
+```JavaScript
 const stringArray = ['a', 'd', 'z', 'b', 'c', 'y']
 const stringArraySortedAsc = stringArray.sort((a, b) => a > b ? 1 : -1)
 console.log(stringArraySortedAsc)
@@ -1258,7 +1314,7 @@ Examples of how to allocate a buffer, write in big or little endian format, enco
 
 #### Node.js
 
-```node
+```JavaScript
 const buf = Buffer.alloc(6)
 
 let value = 0x1234567890ab
@@ -1380,7 +1436,7 @@ true
 
 #### Node.js
 
-```node
+```JavaScript
 const map = new Map()
 map.set('foo', 'bar')
 
@@ -1477,7 +1533,7 @@ baz 300
 
 #### Node.js
 
-```node
+```JavaScript
 const obj = {
   someProperties: {
     'foo': 'bar'
@@ -1549,7 +1605,7 @@ bar
 
 #### Node.js
 
-```node
+```JavaScript
 function add(a, b) {
   return a + b
 }
@@ -1594,7 +1650,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 function greet(name = 'stranger') {
   return `hello ${name}`
 }
@@ -1655,7 +1711,7 @@ hello bob
 
 #### Node.js
 
-```node
+```JavaScript
 const obj = { key: 'foo', value: 'bar' }
 
 const { key, value } = obj
@@ -1714,7 +1770,7 @@ foo bar
 
 #### Node.js
 
-```node
+```JavaScript
 const array = [1, 2, 3, 4, 5]
 
 console.log(...array)
@@ -1758,7 +1814,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 function sum(...nums) {
 	let t = 0
 
@@ -1814,7 +1870,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 let a = 'foo'
 let b = 'bar'
 
@@ -1867,7 +1923,7 @@ Examples of classes, constructors, instantiation, and "this" keyword.
 
 #### Node.js
 
-```node
+```JavaScript
 class Foo {
   constructor(value) {
     this.item = value
@@ -1950,7 +2006,7 @@ qux
 
 #### Node.js
 
-```node
+```JavaScript
 function *generator() {
   yield 'hello'
   yield 'world'
@@ -2068,7 +2124,7 @@ Examples of parsing, formatting, and getting unix timestamp of dates.
 
 #### Node.js
 
-```node
+```JavaScript
 const nowUnix = Date.now()
 console.log(nowUnix)
 
@@ -2143,7 +2199,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 setTimeout(callback, 1e3)
 
 function callback() {
@@ -2195,7 +2251,7 @@ called
 
 #### Node.js
 
-```node
+```JavaScript
 let i = 0
 
 const id = setInterval(callback, 1e3)
@@ -2269,7 +2325,7 @@ Immediately invoked function expression
 
 #### Node.js
 
-```node
+```JavaScript
 (function(name) {
   console.log('hello', name)
 })('bob')
@@ -2310,7 +2366,7 @@ Examples of creating, opening, writing, reading, closing, and deleting files.
 
 #### Node.js
 
-```node
+```JavaScript
 const fs = require('fs')
 
 // create file
@@ -2422,7 +2478,7 @@ Examples of how to parse (unmarshal) and stringify (marshal) JSON.
 
 #### Node.js
 
-```node
+```JavaScript
 let jsonstr = '{"foo":"bar"}'
 
 let parsed = JSON.parse(jsonstr)
@@ -2486,7 +2542,7 @@ Examples of creating big number types from and to uint, string, hex, and buffers
 
 #### Node.js
 
-```node
+```JavaScript
 let bn = 75n;
 console.log(bn.toString(10))
 
@@ -2602,7 +2658,7 @@ true
 
 #### Node.js
 
-```node
+```JavaScript
 function asyncMethod(value) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -2740,7 +2796,7 @@ resolved: foo
 
 #### Node.js
 
-```node
+```JavaScript
 function hello(name) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -2839,7 +2895,7 @@ Examples of reading and writing streams
 
 #### Node.js
 
-```node
+```JavaScript
 const { Readable, Writable } = require('stream')
 
 const inStream = new Readable()
@@ -2943,7 +2999,7 @@ received: xyc
 
 #### Node.js
 
-```node
+```JavaScript
 const EventEmitter = require('events')
 class MyEmitter extends EventEmitter {}
 const myEmitter = new MyEmitter()
@@ -3015,7 +3071,7 @@ hello other world
 
 #### Node.js
 
-```node
+```JavaScript
 const err1 = new Error('some error')
 
 console.log(err1)
@@ -3089,7 +3145,7 @@ my custom error
 
 #### Node.js
 
-```node
+```JavaScript
 function foo(fail) {
   if (fail) {
     throw Error('my error')
@@ -3152,7 +3208,7 @@ caught error: my error
 
 #### Node.js
 
-```node
+```JavaScript
 function foo() {
   throw Error('my exception')
 }
@@ -3212,7 +3268,7 @@ caught exception: my exception
 
 #### Node.js
 
-```node
+```JavaScript
 let input = 'foobar'
 let replaced = input.replace(/foo(.*)/i, 'qux$1')
 console.log(replaced)
@@ -3377,7 +3433,7 @@ hello world
 
 #### Node.js
 
-```node
+```JavaScript
 const net = require('net')
 
 function handler(socket) {
@@ -3454,7 +3510,7 @@ Received: hello
 
 #### Node.js
 
-```node
+```JavaScript
 const dgram = require('dgram')
 const server = dgram.createSocket('udp4')
 
@@ -3537,7 +3593,7 @@ received: hello world from 127.0.0.1:50275
 
 #### Node.js
 
-```node
+```JavaScript
 const http = require('http')
 
 function handler(request, response) {
@@ -3593,7 +3649,7 @@ hello world
 
 #### Node.js
 
-```node
+```JavaScript
 const url = require('url')
 const qs = require('querystring')
 
@@ -3664,7 +3720,7 @@ map[foo:[bar]]
 
 #### Node.js
 
-```node
+```JavaScript
 const zlib = require('zlib')
 
 const data = Buffer.from('hello world', 'utf-8')
@@ -3750,7 +3806,7 @@ DNS lookup examples
 
 #### Node.js
 
-```node
+```JavaScript
 const dns = require('dns')
 
 dns.resolveNs('google.com', (err, ns) => {
@@ -3896,7 +3952,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 const crypto = require('crypto')
 
 const hash = crypto.createHash('sha256').update(Buffer.from('hello')).digest()
@@ -3941,7 +3997,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 const key = process.env['API_KEY']
 
 console.log(key)
@@ -3985,7 +4041,7 @@ foobar
 
 #### Node.js
 
-```node
+```JavaScript
 const args = process.argv.slice(2)
 
 console.log(args)
@@ -4028,7 +4084,7 @@ $ go run examples/cli_args.go foo bar qux
 
 #### Node.js
 
-```node
+```JavaScript
 const yargs = require('yargs')
 
 const { foo='default value', qux=false } = yargs.argv
@@ -4083,7 +4139,7 @@ qux: true
 
 #### Node.js
 
-```node
+```JavaScript
 process.stdout.write('hello world\n')
 ```
 
@@ -4121,7 +4177,7 @@ hello world
 
 #### Node.js
 
-```node
+```JavaScript
 process.stderr.write('hello error\n')
 ```
 
@@ -4159,7 +4215,7 @@ hello error
 
 #### Node.js
 
-```node
+```JavaScript
 const stdin = process.openStdin()
 
 process.stdout.write('Enter name: ')
@@ -4239,7 +4295,7 @@ $ npm prune
 $ npm publish
 ```
 
-```node
+```JavaScript
 // importing a module
 const moment = require('moment')
 
@@ -4253,7 +4309,7 @@ Output
 1546595748
 ```
 
-```node
+```JavaScript
 // exporting a module
 module.exports = {
   greet(name) {
@@ -4262,7 +4318,7 @@ module.exports = {
 }
 ```
 
-```node
+```JavaScript
 // importing exported module
 const greeter = require('./greeter')
 
@@ -4368,7 +4424,7 @@ hello bob
 
 #### Node.js
 
-```node
+```JavaScript
 function foo() {
   throw new Error('failed')
 }
@@ -4457,7 +4513,7 @@ Example of creating a table, inserting rows, and reading rows from a sqlite3 dat
 
 #### Node.js
 
-```node
+```JavaScript
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database('./sqlite3.db')
 
@@ -4576,7 +4632,7 @@ Output
 
 #### Node.js
 
-```node
+```JavaScript
 const test = require('tape')
 
 test(t => {
@@ -4672,7 +4728,7 @@ ok      command-line-arguments  0.008s
 
 #### Node.js
 
-```node
+```JavaScript
 const Benchmark = require('benchmark')
 
 const suite = new Benchmark.Suite
@@ -4779,7 +4835,7 @@ ok      command-line-arguments  3.502s
 
 [jsdoc](http://usejsdoc.org/)
 
-```node
+```JavaScript
 /**
  * Creates a new Person.
  * @class
@@ -4882,7 +4938,7 @@ func ExamplePerson_SetName() {
 
 #### Node.js
 
-```node
+```JavaScript
 ```
 
 Output
